@@ -1,10 +1,13 @@
 import styled from 'styled-components';
+import theme from '../../styles/theme';
 
-export const Body = styled.body`
+export const Body = styled.div`
 	height: 100vh;
+	background: ${theme.colors.background};
+	font-family: ${theme.fonts.netflix};
 `;
 
-export const Header = styled.header`
+export const Header = styled.div`
 	margin-left: 60px;
 	padding: 25px 0;
 
@@ -22,11 +25,10 @@ export const Content = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	color: #fff;
+	color: ${theme.colors.primary};
 
 	h1 {
-		font-family: Netflix Sans;
-		font-size: 64px;
+		font-size: ${theme.fontSizes.large};
 		font-weight: 400;
 		line-height: 82px;
 		letter-spacing: 0em;
@@ -41,6 +43,15 @@ export const ListUsers = styled.div`
 	flex-wrap: wrap;
 	gap: 10px;
 	margin-top: 30px;
+
+	@media (max-width: 830px) {
+		justify-content: center;
+		gap: 30px;
+	}
+
+	@media (max-width: 426px) {
+		flex-direction: column;
+	}
 `;
 
 export const User = styled.div`
@@ -55,14 +66,13 @@ export const User = styled.div`
 	}
 
 	p {
-		font-family: Netflix Sans;
-		font-size: 26px;
+		font-size: ${theme.fontSizes.medium};
 		font-weight: 400;
 		line-height: 33px;
 		letter-spacing: 0em;
 		text-align: center;
 		margin-top: 20px;
-		color: #6d6d6eb2;
+		color: ${theme.colors.second};
 	}
 `;
 
@@ -80,18 +90,51 @@ export const Container = styled.div`
 `;
 
 export const Button = styled.button`
-	font-family: Netflix Sans;
-	font-size: 26px;
+	font-size: ${theme.fontSizes.medium};
 	font-weight: 400;
 	line-height: 33px;
 	letter-spacing: 0em;
-	text-align: left;
-	color: #808080;
-	border: 1px solid #808080;
+	color: ${theme.colors.button};
+	border: 1px solid ${theme.colors.button};
 	outline: none;
 	text-align: center;
 	margin-top: 60px;
 	background: transparent;
 	padding: 10px 30px;
 	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+	transition: background-color 0.3s ease, color 0.3s ease;
+
+	&:before {
+		content: '';
+		position: absolute;
+		background-color: rgba(0, 0, 0, 0.1);
+		width: 10%;
+		height: 25%;
+		border-radius: 50%;
+		z-index: 1;
+		top: 35%;
+		left: 45%;
+		-webkit-transform: scale(0);
+		transform: scale(0);
+	}
+
+	&:hover:before {
+		-webkit-transform: scale(12);
+		transform: scale(12);
+		-webkit-transition: border-radius 0.5s 0.5s, -webkit-transform 0.5s;
+		transition: border-radius 0.5s 0.5s, -webkit-transform 0.5s;
+		transition: transform 0.5s, border-radius 0.5s 0.5s;
+		transition: transform 0.5s, border-radius 0.5s 0.5s, -webkit-transform 0.5s;
+	}
+
+	&:hover::after {
+		content: '';
+		position: absolute;
+		z-index: 2;
+		left: 50%;
+		-webkit-transform: translateX(-50%);
+		transform: translateX(-50%);
+	}
 `;

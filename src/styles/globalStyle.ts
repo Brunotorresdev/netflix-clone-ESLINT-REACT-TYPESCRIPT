@@ -13,8 +13,6 @@ export default createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
-    background-color: #282828;
-    font-family: 'Netflix Sans';
   }
 
   .active{
