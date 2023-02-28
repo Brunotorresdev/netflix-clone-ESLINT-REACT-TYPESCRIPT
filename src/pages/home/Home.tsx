@@ -7,13 +7,13 @@ import {
 	Container,
 	ImgAddUser,
 	Button,
-} from './style';
-import LogoNetflix from '../../assets/netflix.png';
-import ImgUser1 from '../../assets/user1.jpg';
-import ImgUser2 from '../../assets/user2.jpg';
-import ImgUser3 from '../../assets/user3.jpg';
-import ImgUser4 from '../../assets/user4.jpg';
-import AddUser from '../../assets/add-img.png';
+} from '@/pages/home/style';
+import LogoNetflix from '@/assets/netflix.png';
+import ImgUser1 from '@/assets/user1.jpg';
+import ImgUser2 from '@/assets/user2.jpg';
+import ImgUser3 from '@/assets/user3.jpg';
+import ImgUser4 from '@/assets/user4.jpg';
+import AddUser from '@/assets/add-img.png';
 
 interface User {
 	image: string;
