@@ -2,9 +2,11 @@ import styled from 'styled-components';
 import theme from '../../styles/theme';
 
 export const Body = styled.div`
-	height: 100vh;
+	min-height: 100vh;
+	height: 100%;
 	background: ${theme.colors.background};
 	font-family: ${theme.fonts.netflix};
+	border: 1px solid;
 `;
 
 export const Header = styled.div`
@@ -26,6 +28,7 @@ export const Content = styled.div`
 	flex-direction: column;
 	align-items: center;
 	color: ${theme.colors.primary};
+	padding-bottom: 20px;
 
 	h1 {
 		font-size: ${theme.fontSizes.large};
@@ -63,6 +66,11 @@ export const User = styled.div`
 		width: 200px;
 		height: 200px;
 		cursor: pointer;
+		transition: transform 0.3s ease;
+
+		:hover {
+			transform: scale(1.1);
+		}
 	}
 
 	p {
@@ -81,6 +89,7 @@ export const ImgAddUser = styled.img`
 	height: 120px !important;
 	margin-bottom: 33px;
 	margin-top: 46px;
+	transform: none !important;
 `;
 
 export const Container = styled.div`
